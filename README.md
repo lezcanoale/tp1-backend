@@ -18,6 +18,7 @@ Implementación de un sistema de fidelización de clientes que hace seguimiento 
 
 ## Herramientas
 *IDE de desarrollo (opcional, pero recomendado) como IntelliJ IDEA.
+
 *PgAdmin 4 (opcional) o ejecutar todo desde la linea de comandos.
 
 ## Configuracion
