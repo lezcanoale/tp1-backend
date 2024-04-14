@@ -1,10 +1,9 @@
 package py.com.tp1backend.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="cliente")
@@ -32,6 +31,19 @@ public class Cliente extends GenericEntity{
     @Column(nullable = false)
     private Date fechaNacimiento;
 
+
+    public List<UsoPuntosCabecera> getUsoPuntosCabeceras() {
+        return usoPuntosCabeceras;
+    }
+
+    public void setUsoPuntosCabeceras(List<UsoPuntosCabecera> usoPuntosCabeceras) {
+        this.usoPuntosCabeceras = usoPuntosCabeceras;
+    }
+
+
+
+    @OneToMany
+    private List <UsoPuntosCabecera> usoPuntosCabeceras;
     public String getEmail() {
         return email;
     }
