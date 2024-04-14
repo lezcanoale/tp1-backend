@@ -25,7 +25,7 @@ Implementación de un sistema de fidelización de clientes que hace seguimiento 
 *Clonar el repositorio
 ```git clone https://github.com/lezcanoale/tp1-backend.git```
 
-*Usar el script sql ```tp1-backend.sql``` para importar el esquema de la bd (el usuario debe ser.
+*Usar el script sql ```tp1-backend.sql``` para importar el esquema de la bd.
 
 
 ## Ejecutar
@@ -38,4 +38,7 @@ Implementación de un sistema de fidelización de clientes que hace seguimiento 
 #### 3.  Ejecutar la aplicación ya sea por algun IDE o por comandos mvn:
 
 ```mvn spring-boot:run```
+#### 4. Pruebas de Endpoints
+*Para listar clientes 
+  ```http://localhost:8080/api/cliente/listar```
 
