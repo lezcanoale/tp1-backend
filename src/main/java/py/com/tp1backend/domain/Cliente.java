@@ -31,6 +31,13 @@ public class Cliente extends GenericEntity{
     @Column(nullable = false)
     private Date fechaNacimiento;
 
+    @OneToMany
+    private List <UsoPuntosCabecera> usoPuntosCabeceras;
+
+
+    public String getEmail() {
+        return email;
+    }
 
     public List<UsoPuntosCabecera> getUsoPuntosCabeceras() {
         return usoPuntosCabeceras;
@@ -38,14 +45,6 @@ public class Cliente extends GenericEntity{
 
     public void setUsoPuntosCabeceras(List<UsoPuntosCabecera> usoPuntosCabeceras) {
         this.usoPuntosCabeceras = usoPuntosCabeceras;
-    }
-
-
-
-    @OneToMany
-    private List <UsoPuntosCabecera> usoPuntosCabeceras;
-    public String getEmail() {
-        return email;
     }
 
     public void setEmail(String email) {
