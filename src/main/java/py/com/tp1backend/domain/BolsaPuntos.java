@@ -22,14 +22,14 @@ public class BolsaPuntos extends GenericEntity{
     @Column(nullable = false)
     private Date fechaCaducidadPuntaje;
 
-    @Column(nullable = false)
-    private Integer puntajeAsignado ;
 
-    @Column(nullable = false)
-    private Integer puntajeUtilizado;
+    private Long puntajeAsignado ;
 
-    @Column(nullable = false)
-    private Integer saldoPuntos;
+
+    private Long puntajeUtilizado;
+
+
+    private Long saldoPuntos;
 
     @Column(nullable = false)
     private Long montoOperacion;
@@ -58,27 +58,27 @@ public class BolsaPuntos extends GenericEntity{
         this.fechaCaducidadPuntaje = fechaCaducidadPuntaje;
     }
 
-    public Integer getPuntajeAsignado() {
+    public Long getPuntajeAsignado() {
         return puntajeAsignado;
     }
 
-    public void setPuntajeAsignado(Integer puntajeAsignado) {
+    public void setPuntajeAsignado(Long puntajeAsignado) {
         this.puntajeAsignado = puntajeAsignado;
     }
 
-    public Integer getPuntajeUtilizado() {
+    public Long getPuntajeUtilizado() {
         return puntajeUtilizado;
     }
 
-    public void setPuntajeUtilizado(Integer puntajeUtilizado) {
+    public void setPuntajeUtilizado(Long puntajeUtilizado) {
         this.puntajeUtilizado = puntajeUtilizado;
     }
 
-    public Integer getSaldoPuntos() {
+    public Long getSaldoPuntos() {
         return saldoPuntos;
     }
 
-    public void setSaldoPuntos(Integer saldoPuntos) {
+    public void setSaldoPuntos(Long saldoPuntos) {
         this.saldoPuntos = saldoPuntos;
     }
 

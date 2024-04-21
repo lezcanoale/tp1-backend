@@ -12,7 +12,7 @@ public class ReglaAsignacionPuntos extends GenericEntity{
     @Column(nullable = false)
     private Long limiteInferior;
 
-    @Column(nullable = false)
+
     private Long limiteSuperior;
 
     @Column(nullable = false)
