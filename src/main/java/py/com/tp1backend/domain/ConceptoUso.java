@@ -13,7 +13,7 @@ public class ConceptoUso extends GenericEntity {
     private String descripcionUso;
 
     @Column(nullable = false)
-    private Integer puntosRequeridos;
+    private Long puntosRequeridos;
 
     public String getDescripcionUso() {
         return descripcionUso;
@@ -23,11 +23,11 @@ public class ConceptoUso extends GenericEntity {
         this.descripcionUso = descripcionUso;
     }
 
-    public Integer getPuntosRequeridos() {
+    public Long getPuntosRequeridos() {
         return puntosRequeridos;
     }
 
-    public void setPuntosRequeridos(Integer puntosRequeridos) {
+    public void setPuntosRequeridos(Long puntosRequeridos) {
         this.puntosRequeridos = puntosRequeridos;
     }
 }

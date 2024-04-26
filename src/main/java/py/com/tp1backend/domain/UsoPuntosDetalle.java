@@ -15,7 +15,7 @@ public class UsoPuntosDetalle extends GenericEntity{
     private BolsaPuntos bolsaPuntos;
 
     @Column(nullable = false)
-    private Integer puntajeUtilizado;
+    private Long puntajeUtilizado;
 
     public UsoPuntosCabecera getUsoPuntosCabecera() {
         return usoPuntosCabecera;
@@ -33,11 +33,11 @@ public class UsoPuntosDetalle extends GenericEntity{
         this.bolsaPuntos = bolsaPuntos;
     }
 
-    public Integer getPuntajeUtilizado() {
+    public Long getPuntajeUtilizado() {
         return puntajeUtilizado;
     }
 
-    public void setPuntajeUtilizado(Integer puntajeUtilizado) {
+    public void setPuntajeUtilizado(Long puntajeUtilizado) {
         this.puntajeUtilizado = puntajeUtilizado;
     }
 }
