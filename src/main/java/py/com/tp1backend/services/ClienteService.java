@@ -72,11 +72,11 @@ public class ClienteService {
             try{
                 if(bolsaPuntosRepository.sumaPuntosBolsaPorClienteYValidos(cliente.getId())>=puntos){
                     descontarPuntosdeBolsa(bolsaPuntos,puntos,cliente,conceptoUso);
-//                    try{
-//                        enviarCorreoOutlook(cliente.getEmail(),"Comprobante de uso de puntos","Se utilizaron: "+puntos+ "de la bolsa de puntos con fecha "+ new Date());
-//                    }catch(Exception e){
-//                        throw new RuntimeException("Se utilizaron los puntos correctamente pero ocurrió un error al enviar el correo: "+e.getMessage());
-//                    }
+                    try{
+                        enviarCorreoOutlook(cliente.getEmail(),"Comprobante de uso de puntos","Se utilizaron: "+puntos+ "de la bolsa de puntos con fecha "+ new Date());
+                    }catch(Exception e){
+                        throw new RuntimeException("Se utilizaron los puntos correctamente pero ocurrió un error al enviar el correo: "+e.getMessage());
+                    }
                     return "Se utilizaron los puntos correctamente.";
                 }else{
                     return "No tiene puntos suficientes";
