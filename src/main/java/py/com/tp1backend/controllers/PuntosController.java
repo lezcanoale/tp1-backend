@@ -3,16 +3,14 @@ package py.com.tp1backend.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import py.com.tp1backend.domain.BolsaPuntos;
 import py.com.tp1backend.domain.Cliente;
 import py.com.tp1backend.domain.ConceptoUso;
 import py.com.tp1backend.repository.ClienteRepository;
 import py.com.tp1backend.repository.ConceptoUsoRepository;
 import py.com.tp1backend.repository.PuntosRepository;
+import py.com.tp1backend.repository.ReglaPuntosRepository;
 import py.com.tp1backend.services.ClienteService;
 import py.com.tp1backend.services.PuntosService;
 
@@ -33,6 +31,9 @@ public class PuntosController {
 
     @Autowired
     private ConceptoUsoRepository conceptoUsoRepository;
+
+    @Autowired
+    private ReglaPuntosRepository reglaPuntosRepository;
 
     @PostMapping("/cargar-puntos")
     private ResponseEntity<?> cargarPuntos(@RequestParam(required = true)Long idCliente,@RequestParam(required = true)Long monto){
@@ -59,5 +60,10 @@ public class PuntosController {
         }catch (RuntimeException e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
+    }
+    @GetMapping("/monto-punto")
+    private ResponseEntity<?>calcularPuntosMonto(@RequestParam(required = true)Long monto){
+        Long puntos=reglaPuntosRepository.getMontoPunto(monto);
+        return ResponseEntity.ok(puntos);
     }
 }
