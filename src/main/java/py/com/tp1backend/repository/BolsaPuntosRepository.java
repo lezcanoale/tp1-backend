@@ -17,4 +17,10 @@ public interface BolsaPuntosRepository extends JpaRepository<BolsaPuntos, Long> 
 
     @Query("SELECT b.cliente FROM BolsaPuntos b WHERE b.fechaCaducidadPuntaje BETWEEN CURRENT_DATE AND :fechaLimite AND b.saldoPuntos > 0")
     List<Cliente> findPuntosPorVencer(Date fechaLimite);
+
+    @Query("SELECT bp FROM BolsaPuntos bp WHERE bp.cliente.id=:idCliente AND bp.fechaCaducidadPuntaje>= current date  ORDER BY bp.fechaAsignacionPuntaje ASC")
+    List<BolsaPuntos> findBolsaPuntosMasViejosAndValidosByCliente(Long idCliente);
+
+    @Query("SELECT SUM(bp.saldoPuntos)  FROM BolsaPuntos bp WHERE bp.cliente.id=:idCliente AND bp.fechaCaducidadPuntaje>= current date")
+    Long  sumaPuntosBolsaPorClienteYValidos(Long idCliente);
 }

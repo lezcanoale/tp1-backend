@@ -74,6 +74,7 @@ public class BolsaPuntos extends GenericEntity{
         this.puntajeUtilizado = puntajeUtilizado;
     }
 
+
     public Long getSaldoPuntos() {
         return saldoPuntos;
     }

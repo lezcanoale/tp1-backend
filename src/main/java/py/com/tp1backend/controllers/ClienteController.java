@@ -1,11 +1,9 @@
 package py.com.tp1backend.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import py.com.tp1backend.domain.Cliente;
 import py.com.tp1backend.repository.BolsaPuntosRepository;
 import py.com.tp1backend.repository.ClienteRepository;
@@ -64,6 +62,41 @@ public class ClienteController {
         List<Cliente>clientes=clienteRepository.findByFechaNacimiento(fecha);
         return ResponseEntity.ok(clientes);
     }
+    @PostMapping("/agregar-cliente")
+    public ResponseEntity<?> agregarCliente(@RequestBody Cliente cliente){
+        try{
+            Cliente nuevoCliente=new Cliente();
+            nuevoCliente.setFechaNacimiento(cliente.getFechaNacimiento());
+            nuevoCliente.setNacionalidad(cliente.getNacionalidad());
+            nuevoCliente.setNombre(cliente.getNombre());
+            nuevoCliente.setApellido(cliente.getApellido());
+            nuevoCliente.setEmail(cliente.getEmail());
+            nuevoCliente.setTipoDocumento(cliente.getTipoDocumento());
+            nuevoCliente.setNumeroDocumento(cliente.getNumeroDocumento());
+            nuevoCliente.setTelefono(cliente.getTelefono());
+            clienteRepository.save(nuevoCliente);
+            return ResponseEntity.status(HttpStatus.CREATED).body(nuevoCliente);
+        }catch(Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
 
-
+    }
+    @PutMapping("/modificar-cliente")
+    public ResponseEntity<?> modificarCliente(@RequestBody Cliente clienteRequest){
+        try{
+            Cliente cliente= clienteRepository.findClienteById(clienteRequest.getId());
+            cliente.setFechaNacimiento(clienteRequest.getFechaNacimiento());
+            cliente.setNacionalidad(clienteRequest.getNacionalidad());
+            cliente.setNombre(clienteRequest.getNombre());
+            cliente.setApellido(clienteRequest.getApellido());
+            cliente.setEmail(clienteRequest.getEmail());
+            cliente.setNumeroDocumento(clienteRequest.getNumeroDocumento());
+            cliente.setTipoDocumento(clienteRequest.getTipoDocumento());
+            cliente.setTelefono(clienteRequest.getTelefono());
+            clienteRepository.save(cliente);
+            return ResponseEntity.status(HttpStatus.OK).body(cliente);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
+    }
 }

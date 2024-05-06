@@ -31,6 +31,9 @@ public class Cliente extends GenericEntity{
     @Column(nullable = false)
     private Date fechaNacimiento;
 
+    @Column(nullable = false)
+    private String telefono;
+
     @OneToMany
     private List <UsoPuntosCabecera> usoPuntosCabeceras;
 
@@ -97,5 +100,13 @@ public class Cliente extends GenericEntity{
 
     public void setNacionalidad(String nacionalidad) {
         this.nacionalidad = nacionalidad;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 }

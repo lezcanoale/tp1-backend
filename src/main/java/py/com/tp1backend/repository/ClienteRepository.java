@@ -13,4 +13,7 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
     @Query("SELECT c FROM Cliente c WHERE c.fechaNacimiento=:fechaCumple")
     public List<Cliente> findByFechaNacimiento( Date fechaCumple);
+
+    @Query("SELECT c FROM Cliente c WHERE c.id=:id")
+    public Cliente findClienteById( Long id);
 }

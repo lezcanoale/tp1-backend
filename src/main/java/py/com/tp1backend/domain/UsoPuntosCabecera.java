@@ -15,7 +15,7 @@ public class UsoPuntosCabecera extends GenericEntity{
     private Cliente cliente;
 
     @Column(nullable = false)
-    private int puntajeUtilizado;
+    private Long puntajeUtilizado;
 
     @Column(nullable = false)
     private Date fecha;
@@ -32,11 +32,11 @@ public class UsoPuntosCabecera extends GenericEntity{
         this.cliente = cliente;
     }
 
-    public int getPuntajeUtilizado() {
+    public Long getPuntajeUtilizado() {
         return puntajeUtilizado;
     }
 
-    public void setPuntajeUtilizado(int puntajeUtilizado) {
+    public void setPuntajeUtilizado(Long puntajeUtilizado) {
         this.puntajeUtilizado = puntajeUtilizado;
     }
 
