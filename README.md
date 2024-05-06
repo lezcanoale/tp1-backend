@@ -32,7 +32,7 @@ Implementación de un sistema de fidelización de clientes que hace seguimiento 
 #### 1. Compilar el proyecto por IDE o por comando:
 
 ```mvn clean install```
-#### 2. Ejecutar el postgresql para hacer correr la bd (en el puerto: 5633, con usuario: postgres, pass:1234).
+#### 2. Ejecutar el postgresql para hacer correr la bd (en el puerto: 5433, con usuario: postgres, pass:1234).
 
 
 #### 3.  Ejecutar la aplicación ya sea por algun IDE o por comandos mvn:
