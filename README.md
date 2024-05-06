@@ -38,7 +38,16 @@ Implementación de un sistema de fidelización de clientes que hace seguimiento 
 #### 3.  Ejecutar la aplicación ya sea por algun IDE o por comandos mvn:
 
 ```mvn spring-boot:run```
-#### 4. Pruebas de Endpoints
+
+#### 4. Cambiar entre ambientes dev y prod usando mvn
+*Ambiente desarrollo
+```mvn spring-boot:run -Dspring-boot.run.profiles=dev```
+
+*Ambiente prod
+```mvn spring-boot:run -Dspring-boot.run.profiles=prod```
+
+#### 5. Pruebas de Endpoints
 *Para listar clientes 
   ```http://localhost:8080/api/cliente/listar```
+  
 
